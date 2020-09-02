@@ -101,7 +101,8 @@
 		}
 	}
 
-	&:active, &:focus {
+	&:active,
+	&:focus {
 		outline: 0;
 	}
 
@@ -113,12 +114,12 @@
 				top: 50%;
 				transform: rotate(45deg);
 			}
-	
+
 			&:nth-child(2) {
 				opacity: 0;
 				left: -1.5rem;
 			}
-	
+
 			&:nth-child(3) {
 				top: 50%;
 				transform: rotate(-45deg);

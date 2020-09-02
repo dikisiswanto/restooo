@@ -23,6 +23,7 @@
 	box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
 	border-radius: $spacing--sm;
 	overflow: hidden;
+	background-color: $color--white;
 
 	&__header {
 		position: relative;
@@ -51,6 +52,7 @@
 	&__body {
 		@include y-padding($spacing--base);
 		@include x-padding($spacing--base);
+		margin-bottom: $spacing--sm;
 
 		@media (min-width: $screen--md) {
 			@include x-padding($spacing--lg);
