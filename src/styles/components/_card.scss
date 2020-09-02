@@ -1,0 +1,78 @@
+.cards {
+	display: grid;
+	margin-top: $spacing--lg;
+	row-gap: $spacing--md;
+	column-gap: $spacing--base;
+	grid-template-columns: repeat(1, 1fr);
+
+	@media (min-width: $screen--sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: $screen--lg) {
+		grid-template-columns: repeat(3, 1fr);
+
+	}
+
+	@media (min-width: $screen--xl) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+.card {
+	box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
+	border-radius: $spacing--sm;
+	overflow: hidden;
+
+	&__header {
+		position: relative;
+	}
+
+	&__image {
+		width: 100%;
+		height: 12rem;
+		object-fit: cover;
+		object-position: center;
+		background-color: $color--primary;
+	}
+
+	&__badge {
+		@include y-padding($spacing--sm);
+		@include x-padding($spacing--base);
+		display: inline-block;
+		position: absolute;
+		top: $spacing--sm;
+		left: 0;
+		background-color: rgba($color--secondary, .8);
+		color: $color--primary-text;
+		font-size: $font-size--sm;
+	}
+
+	&__body {
+		@include y-padding($spacing--base);
+		@include x-padding($spacing--base);
+
+		@media (min-width: $screen--md) {
+			@include x-padding($spacing--lg);
+		}
+
+		@media (min-width: $screen--lg) {
+			@include x-padding($spacing--base);
+		}
+	}
+
+	&__title {
+		@include y-padding($spacing--sm);
+		font-size: $font-size--xl;
+		font-family: $font-family--heading;
+	}
+
+	&__link {
+		color: darken($color--primary, 50%);
+		text-decoration: none;
+
+		&:hover {
+			color: $color--primary;
+		}
+	}
+}

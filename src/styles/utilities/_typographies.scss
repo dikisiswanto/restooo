@@ -1,0 +1,45 @@
+$font-size--xs: 0.75rem;
+$font-size--sm: 0.875rem;
+$font-size--base: 1rem;
+$font-size--lg: 1.125rem;
+$font-size--xl: 1.25rem;
+$font-size--2xl: 1.5rem;
+$font-size--3xl: 1.875rem;
+$font-size--4xl: 2.25rem;
+$font-size--5xl: 3rem;
+$font-size--6xl: 4rem;
+
+$font-family--brand: Pacifico;
+$font-family--heading: Lora;
+$font-family--body: 'Open Sans';
+
+$font-weight--reguler: 400;
+$font-weight--semibold: 600;
+
+.--text-left {
+	text-align: left !important;
+}
+
+.--text-right {
+	text-align: right !important;
+}
+
+.--text-center {
+	text-align: center !important;
+}
+
+.--text-xs {
+	font-size: $font-size--xs !important;
+}
+
+.--text-sm {
+	font-size: $font-size--sm !important;
+}
+
+.--text-base {
+	font-size: $font-size--base !important;
+}
+
+.--text-lg {
+	font-size: $font-size--lg !important;
+}

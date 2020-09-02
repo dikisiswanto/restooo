@@ -1,0 +1,30 @@
+.footer {
+	@include y-padding($spacing--base);
+	background-color: $color--primary;
+	color: $color--white;
+	margin: 0;
+	font-size: $font-size--sm;
+
+	&__inner {
+		@include container;
+		text-align: center;
+
+		@media (min-width: $screen--lg) {
+			text-align: left;
+		}
+	}
+
+	a {
+		color: inherit;
+
+		&:hover {
+			color: darken($color--white, 20%);
+		}
+	}
+
+	strong {
+		font-family: $font-family--brand;
+		font-size: $font-size--lg;
+		font-weight: $font-weight--reguler;
+	}
+}

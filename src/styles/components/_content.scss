@@ -1,0 +1,26 @@
+.content {
+	@include container;
+	@include y-margin($spacing--lg);
+	@include y-padding($spacing--lg);
+	
+	&__title {
+		font-size: $font-size--3xl;
+		font-weight: $font-weight--semibold;
+		font-family: $font-family--heading;
+		color: $color--primary-text;
+
+		@media (min-width: $screen--lg) {
+			font-size: $font-size--4xl;
+		}
+	}
+
+	&__subtitle {
+		color: lighten($color--black, 30%);
+		font-size: $font-size--lg;
+	}
+
+	&__description {
+		color: lighten($color--black, 30%);
+		font-size: $font-size--base;
+	}
+}
