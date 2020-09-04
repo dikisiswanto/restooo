@@ -48,7 +48,8 @@
 			transition: all .3s;
 		}
 
-		&:hover {
+		&:hover,
+		&--active {
 			color: $color--secondary;
 
 			&::after {
@@ -68,7 +69,7 @@
 	border: 0;
 	display: inline-block;
 	width: 3.5rem;
-	height: 2.5rem;
+	height: 3rem;
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
@@ -84,12 +85,12 @@
 		height: 2px;
 		background-color: $color--white;
 		position: absolute;
-		left: .5rem;
-		right: .5rem;
+		left: .6rem;
+		right: .6rem;
 		transition: all .3s;
 
 		&:nth-child(1) {
-			top: 25%;
+			top: 30%;
 		}
 
 		&:nth-child(2) {
@@ -97,7 +98,7 @@
 		}
 
 		&:nth-child(3) {
-			top: 75%;
+			top: 70%;
 		}
 	}
 

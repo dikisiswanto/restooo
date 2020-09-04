@@ -44,9 +44,10 @@
 		position: absolute;
 		top: $spacing--sm;
 		left: 0;
-		background-color: rgba($color--secondary, .8);
+		background-color: rgba($color--secondary, .9);
 		color: $color--primary-text;
 		font-size: $font-size--sm;
+		box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
 	}
 
 	&__body {

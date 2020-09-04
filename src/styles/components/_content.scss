@@ -8,6 +8,7 @@
 		font-weight: $font-weight--semibold;
 		font-family: $font-family--heading;
 		color: $color--primary-text;
+		padding-bottom: $spacing--md;
 
 		@media (min-width: $screen--lg) {
 			font-size: $font-size--4xl;
