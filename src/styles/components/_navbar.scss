@@ -14,7 +14,7 @@
 	}
 
 	&__item {
-		@include x-padding($spacing--sm);
+		@include x-padding($spacing--xs);
 		width: 100%;
 
 		@media (min-width: $screen--lg) {
@@ -24,7 +24,8 @@
 
 	&__link {
 		@include y-padding($spacing--md);
-		display: block;
+		display: flex;
+		align-items: center;
 		position: relative;
 		color: inherit;
 		font-family: $font-family--heading;
@@ -32,7 +33,7 @@
 		transition: all .3s;
 
 		@media (min-width: $screen--lg) {
-			display: inline-block;
+			display: inline-flex;
 			@include x-padding($spacing--base)
 		}
 
