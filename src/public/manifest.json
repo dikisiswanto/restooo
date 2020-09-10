@@ -4,7 +4,7 @@
 	"description": "Mini web to find a nearby restaurant from your location",
 	"start_url": "./index.html",
 	"display": "standalone",
-	"background": "#ffffff",
+	"background_color": "#ffffff",
 	"theme_color": "#982121",
 	"icons": [
 		{
