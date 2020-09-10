@@ -128,8 +128,8 @@ export default class Detail extends LitElement {
 			const jsonFormData = this._parseFormDataToJson(new FormData(event.target));
 			this._resetForm(event.target);
 			await this._submitReview(jsonFormData);
+			await this._requestData();
 		}
-		await this._requestData();
 	}
 
 	_parseFormDataToJson(formData) {

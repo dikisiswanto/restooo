@@ -2,7 +2,7 @@ import 'regenerator-runtime'; /* for async await transpile */
 import 'normalize.css';
 import '../styles/main.scss';
 import App from './views/app';
-import registerServiceWorker from './utils/register-service-worker';
+import serviceWorkerRegister from './utils/service-worker-register';
 
 const feather = require('feather-icons');
 
@@ -20,5 +20,5 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
 	app.renderPage();
 	feather.replace();
-	registerServiceWorker.init();
+	serviceWorkerRegister.init();
 });

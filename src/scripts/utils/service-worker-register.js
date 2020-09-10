@@ -1,4 +1,4 @@
-const registerServiceWorker = {
+const serviceWorkerRegister = {
 	async init() {
 		if ('serviceWorker' in navigator) {
 			try {
@@ -16,4 +16,4 @@ const registerServiceWorker = {
 	},
 };
 
-export default registerServiceWorker;
+export default serviceWorkerRegister;
