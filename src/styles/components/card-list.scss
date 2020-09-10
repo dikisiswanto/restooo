@@ -1,0 +1,30 @@
+@import '../base';
+
+.card-list-title {
+	@include y-padding($spacing--lg);
+	font-family: $font-family--heading;
+	font-size: $font-size--3xl;
+	font-weight: $font-weight--semibold;
+	margin-bottom: $spacing--base;
+	text-align: center;
+}
+
+.cards {
+	column-gap: $spacing--base;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	row-gap: $spacing--md;
+
+	@media (min-width: $screen--sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (min-width: $screen--lg) {
+		grid-template-columns: repeat(3, 1fr);
+
+	}
+
+	@media (min-width: $screen--xl) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

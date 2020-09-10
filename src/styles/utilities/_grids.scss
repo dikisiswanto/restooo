@@ -6,16 +6,16 @@ $spacing--md: 1.5rem;
 $spacing--lg: 2rem;
 
 @mixin container {
+	margin: 0 auto;
 	max-width: $container;
 	padding-left: $spacing--base;
 	padding-right: $spacing--base;
-	margin: 0 auto;
 }
 
 // Vertical padding
 @mixin y-padding($padding) {
-	padding-top: $padding;
 	padding-bottom: $padding;
+	padding-top: $padding;
 }
 
 // Horizontal padding
@@ -26,8 +26,8 @@ $spacing--lg: 2rem;
 
 // Vertical margin
 @mixin y-margin($margin) {
-	margin-top: $margin;
 	margin-bottom: $margin;
+	margin-top: $margin;
 }
 
 // Horizontal margin

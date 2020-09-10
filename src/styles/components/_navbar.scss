@@ -1,11 +1,11 @@
 .nav {
+	color: $color--white;
 	display: flex;
 	flex-direction: column;
-	transition: all .3s;
+	height: 0;
 	transform: scaleY(0);
 	transform-origin: top;
-	height: 0;
-	color: $color--white;
+	transition: all .3s;
 
 	@media (min-width: $screen--lg) {
 		flex-direction: row;
@@ -24,33 +24,33 @@
 
 	&__link {
 		@include y-padding($spacing--md);
-		display: flex;
 		align-items: center;
-		position: relative;
 		color: inherit;
+		display: flex;
 		font-family: $font-family--heading;
+		position: relative;
 		text-decoration: none;
 		transition: all .3s;
 
 		@media (min-width: $screen--lg) {
+			@include x-padding($spacing--base);
 			display: inline-flex;
-			@include x-padding($spacing--base)
 		}
 
 		&::after {
+			background: $color--secondary;
+			bottom: 0;
 			content: '';
 			height: 3px;
-			width: 0;
-			background: $color--secondary;
-			position: absolute;
-			bottom: 0;
 			left: 0;
+			position: absolute;
 			right: 0;
 			transition: all .3s;
+			width: 0;
 		}
 
 		&:hover,
-		&--active {
+		&.--active {
 			color: $color--secondary;
 
 			&::after {
@@ -59,34 +59,34 @@
 		}
 	}
 
-	&--expanded {
-		transform: scaleY(1);
+	&.--expanded {
 		height: 100%;
+		transform: scaleY(1);
 	}
 }
 
 .nav-button {
 	background: transparent;
 	border: 0;
-	display: inline-block;
-	width: 3.5rem;
-	height: 3rem;
 	cursor: pointer;
-	position: relative;
+	display: inline-block;
+	height: 3rem;
 	overflow: hidden;
+	position: relative;
+	width: 3.5rem;
 
 	@media (min-width: $screen--lg) {
 		display: none;
-		visibility: hidden;
 		opacity: 0;
+		visibility: hidden;
 	}
 
 	&__icon {
+		background-color: $color--white;
 		display: block;
 		height: 2px;
-		background-color: $color--white;
-		position: absolute;
 		left: .6rem;
+		position: absolute;
 		right: .6rem;
 		transition: all .3s;
 
@@ -108,7 +108,7 @@
 		outline: 0;
 	}
 
-	&--expanded {
+	&.--expanded {
 		.nav-button__icon {
 			width: 60%;
 
@@ -118,8 +118,8 @@
 			}
 
 			&:nth-child(2) {
-				opacity: 0;
 				left: -1.5rem;
+				opacity: 0;
 			}
 
 			&:nth-child(3) {

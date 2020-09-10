@@ -44,6 +44,22 @@ $font-weight--semibold: 600;
 	font-size: $font-size--lg !important;
 }
 
+.--text-xl {
+	font-size: $font-size--xl !important;
+}
+
+.--text-2xl {
+	font-size: $font-size--2xl !important;
+}
+
+.--text-3xl {
+	font-size: $font-size--3xl !important;
+}
+
 .--text-semibold {
 	font-weight: $font-weight--semibold;
+}
+
+.--text-heading {
+	font-family: $font-family--heading !important;
 }

@@ -1,0 +1,14 @@
+@import '../base';
+
+.menu-item {
+	@include y-padding($spacing--sm);
+	list-style: none;
+
+	.feather {
+		display: inline-block;
+		height: 1.3rem;
+		margin-right: $spacing--sm;
+		stroke: $color--primary;
+		width: 1.3rem;
+	}
+}

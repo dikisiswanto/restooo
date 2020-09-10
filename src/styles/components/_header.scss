@@ -1,11 +1,11 @@
 .header {
-	position: fixed;
-	top: 0;
-	z-index: 50;
-	width: 100%;
+	background-color: $color--black;
 	box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
 	color: $color--white;
-	background-color: $color--black;
+	position: sticky;
+	top: 0;
+	width: 100%;
+	z-index: 50;
 
 	&__inner {
 		@include container;
@@ -18,21 +18,29 @@
 		}
 	}
 
+	&__logo {
+		fill: $color--primary;
+		height: 2rem;
+		margin-right: $spacing--xs;
+		width: auto;
+	}
+
 	&__brand {
 		@include y-padding($spacing--base);
+		align-items: center;
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
 	}
 
 	&__title {
+		color: $color--secondary;
 		font-family: $font-family--brand;
 		font-size: $font-size--3xl;
-		color: $color--secondary;
 	}
 
 	&__link {
 		color: inherit;
+		display: inline-flex;
 		text-decoration: none;
 		transition: all .3s;
 

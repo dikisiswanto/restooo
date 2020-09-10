@@ -1,20 +1,21 @@
-// Import utilities
-@import './utilities/resets';
-@import './utilities/variables';
+// Import base
+@import './base';
+
 // Import components
 @import './components/header';
 @import './components/navbar';
-@import './components/hero';
 @import './components/content';
-@import './components/card';
 @import './components/icon';
 @import './components/footer';
 
 body {
-	font-family: $font-family--body, sans-serif;
 	background-color: $color--background;
-	font-size: $font-size--base;
 	color: $color--primary-text;
+	display: flex;
+	flex-direction: column;
+	font-family: $font-family--body, sans-serif;
+	font-size: $font-size--base;
+	min-height: 100vh;
 }
 
 .container {
@@ -24,19 +25,24 @@ body {
 .skip-to-content {
 	@include y-padding($spacing--sm);
 	@include x-padding($spacing--base);
-	position: absolute;
-	display: inline-block;
-	top: 5rem;
-	left: 1rem;
-	z-index: 60;
 	background-color: $color--black;
 	color: $color--secondary;
-	text-decoration: none;
+	display: inline-block;
+	left: 1rem;
 	opacity: 0;
+	position: absolute;
+	text-decoration: none;
+	top: 5rem;
 	transition: all .2s;
+	z-index: -1;
 
 	&:focus {
 		opacity: 1;
 		text-decoration: underline;
+		z-index: 60;
 	}
+}
+
+main {
+	flex: 1;
 }

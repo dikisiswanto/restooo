@@ -1,0 +1,30 @@
+@import '../base';
+
+.info {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+
+	&__icon {
+		.feather {
+			height: 5rem;
+			stroke: $color--secondary;
+			width: 5rem;
+		}
+	}
+
+	&__description {
+		@include y-padding($spacing--base);
+		@include x-padding($spacing--sm);
+		text-align: center;
+	}
+
+	&__heading {
+		@include y-padding($spacing--sm);
+		font-family: $font-family--heading;
+		font-size: $font-size--2xl;
+		font-weight: $font-weight--semibold;
+	}
+}

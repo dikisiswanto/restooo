@@ -2,8 +2,8 @@
 	@include y-padding($spacing--base);
 	background-color: $color--primary;
 	color: $color--white;
-	margin: 0;
 	font-size: $font-size--sm;
+	margin: 0;
 
 	&__inner {
 		@include container;

@@ -1,0 +1,24 @@
+@import '../base';
+
+.favorite-button {
+	@include y-margin($spacing--base);
+	@include y-padding($spacing--base);
+	@include x-padding($spacing--md);
+	background-color: $color--primary;
+	border: 2px solid transparent;
+	border-radius: .5rem;
+	box-shadow: 0 0 5px rgba($color--black, .1);
+	color: $color--white;
+	cursor: pointer;
+	font-size: $font-size--base;
+	font-weight: $font-weight--semibold;
+	outline: none;
+	transition: all .3s;
+	width: 100%;
+
+	&.--favorited {
+		background-color: $color--white;
+		border: 2px solid $color--primary;
+		color: $color--primary;
+	}
+}
