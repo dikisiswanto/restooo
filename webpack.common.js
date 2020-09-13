@@ -78,6 +78,10 @@ module.exports = {
 					urlPattern: new RegExp('https://dicoding-restaurant-api.el.r.appspot.com/'),
 					handler: 'StaleWhileRevalidate',
 				},
+				{
+					urlPattern: new RegExp('https://fonts.gstatic.com/'),
+					handler: 'StaleWhileRevalidate',
+				},
 			],
 		}),
 	],
