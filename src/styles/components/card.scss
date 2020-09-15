@@ -4,17 +4,37 @@
 	background-color: $color--white;
 	border-radius: $spacing--sm;
 	box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
+	color: $color--black;
+	display: block;
 	overflow: hidden;
+	text-decoration: none;
+	transition: box-shadow .3s;
+
+	&:hover,
+	&:focus {
+		box-shadow: 0 2px 15px 0 rgba($color--black, 0.1), 0 2px 14px 0 rgba($color--black, 0.06);
+
+		.card__image {
+			transform: scale(1.05);
+		}
+
+		.card__title {
+			color: $color--primary;
+		}
+	}
 
 	&__header {
+		height: 12rem;
+		overflow: hidden;
 		position: relative;
 	}
 
 	&__image {
 		background-color: rgba($color--black, .15);
-		height: 12rem;
+		height: inherit;
 		object-fit: cover;
 		object-position: center;
+		transition: transform .3s;
 		width: 100%;
 	}
 
@@ -50,15 +70,6 @@
 		font-family: $font-family--heading;
 		font-size: $font-size--xl;
 	}
-
-	&__link {
-		color: darken($color--primary, 50%);
-		text-decoration: none;
-
-		&:hover {
-			color: $color--primary;
-		}
-	}
 }
 
 .feather {
@@ -75,4 +86,3 @@
 		width: 1.2rem;
 	}
 }
-

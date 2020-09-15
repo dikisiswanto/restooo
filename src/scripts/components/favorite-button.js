@@ -28,8 +28,7 @@ class FavoriteButton extends LitElement {
 	}
 
 	_getButtonText() {
-		const caption = !this._isFavorited ? 'Add to favorite' : 'Remove from favorite';
-		return caption;
+		return !this._isFavorited ? 'Add to favorite' : 'Remove from favorite';
 	}
 
 	_toggleFavorite() {

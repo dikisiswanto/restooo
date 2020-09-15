@@ -5,8 +5,7 @@ class Api {
 	static async getAllRestaurants() {
 		try {
 			const response = await fetch(API_ENDPOINT.ALL_RESTAURANTS);
-			const responseJson = await response.json();
-			return responseJson;
+			return await response.json();
 		} catch (error) {
 			return error;
 		}
@@ -15,8 +14,7 @@ class Api {
 	static async getRestaurant(id) {
 		try {
 			const response = await fetch(`${API_ENDPOINT.DETAIL_RESTAURANT}/${id}`);
-			const responseJson = response.json();
-			return responseJson;
+			return await response.json();
 		} catch (error) {
 			return error;
 		}
@@ -33,8 +31,7 @@ class Api {
 				body: JSON.stringify(data),
 			};
 			const response = await fetch(API_ENDPOINT.POST_REVIEW, options);
-			const responseJson = response.json();
-			return responseJson;
+			return response.json();
 		} catch (error) {
 			return error;
 		}
