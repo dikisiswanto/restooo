@@ -9,8 +9,6 @@ import '../../components/review-item';
 import '../../components/favorite-button';
 import UrlParser from '../../utils/url-parser';
 import CONFIG from '../../data/config';
-import detailStyle from '../../../styles/components/detail.scss';
-import reviewFormStyle from '../../../styles/components/review-form.scss';
 
 const feather = require('feather-icons');
 
@@ -22,10 +20,6 @@ export default class Detail extends LitElement {
 			_icons: { type: Object },
 			_isValid: { type: Boolean },
 		};
-	}
-
-	static get styles() {
-		return [detailStyle, reviewFormStyle];
 	}
 
 	constructor() {
@@ -48,6 +42,10 @@ export default class Detail extends LitElement {
 			return this._renderLoading();
 		}
 		return this._renderData();
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 
 	async _requestData() {
@@ -79,17 +77,17 @@ export default class Detail extends LitElement {
 						<h3 class="detail__subtitle">Description</h3>
 						<p>${this._data.description}</p>
 					</div>
-					<favorite-button restaurant='${JSON.stringify(this._data)}'></favorite-button>
+					<favorite-button .restaurant='${this._data}'></favorite-button>
 				</div>
 			</section>
 			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Menus</h3>
 			<section class="menu-section">
-				<menu-list menus='${JSON.stringify(this._data.menus.foods)}' title="Foods"></menu-list>
-				<menu-list menus='${JSON.stringify(this._data.menus.drinks)}' title="Drinks"></menu-list>
+				<menu-list .menus='${this._data.menus.foods}' title="Foods"></menu-list>
+				<menu-list .menus='${this._data.menus.drinks}' title="Drinks"></menu-list>
 			</section>
 			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
 			<section class="review-section">
-				${this._data.consumerReviews.map((review) => html`<review-item review="${JSON.stringify(review)}"></review-item>`)}
+				${this._data.consumerReviews.map((review) => html`<review-item .review="${review}"></review-item>`)}
 			</section>
 			<form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
 				<h4 class="review-form__title">Submit a review</h4>

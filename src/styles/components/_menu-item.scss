@@ -1,8 +1,6 @@
-@import '../base';
-
 .menu-item {
 	@include y-padding($spacing--sm);
-	list-style: none;
+	display: block;
 
 	.feather {
 		display: inline-block;

@@ -1,6 +1,5 @@
 import { html, LitElement } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import reviewItemStyle from '../../styles/components/review-item.scss';
 
 const feather = require('feather-icons');
 
@@ -9,10 +8,6 @@ class ReviewItem extends LitElement {
 		return {
 			review: { type: Object },
 		};
-	}
-
-	static get styles() {
-		return [reviewItemStyle];
 	}
 
 	constructor() {
@@ -32,6 +27,10 @@ class ReviewItem extends LitElement {
 				</div>
 			</div>
 		`;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 }
 

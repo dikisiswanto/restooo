@@ -27,6 +27,10 @@ export default class Home extends LitElement {
 		return this._renderData();
 	}
 
+	createRenderRoot() {
+		return this;
+	}
+
 	async _requestData() {
 		const { restaurants } = await Api.getAllRestaurants();
 		this._data = restaurants || [];
@@ -39,7 +43,7 @@ export default class Home extends LitElement {
 		}
 		return html`
 			<hero-section></hero-section>
-			<card-list restaurants='${JSON.stringify(this._data)}'></card-list>
+			<card-list .restaurants='${this._data}'></card-list>
 		`;
 	}
 

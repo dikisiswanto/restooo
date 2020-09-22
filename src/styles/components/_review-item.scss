@@ -1,5 +1,3 @@
-@import '../base';
-
 .review-item {
 	@include y-padding($spacing--xs);
 	background-color: $color--white;

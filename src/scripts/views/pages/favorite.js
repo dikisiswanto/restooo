@@ -27,6 +27,10 @@ export default class Favorite extends LitElement {
 		return this._renderData();
 	}
 
+	createRenderRoot() {
+		return this;
+	}
+
 	async _requestData() {
 		await Database.init();
 		this._data = await Database.getAllRestaurants();
@@ -38,7 +42,7 @@ export default class Favorite extends LitElement {
 			return this._renderEmptyInfo();
 		}
 		return html`
-			<card-list restaurants='${JSON.stringify(this._data)}' title="Your Favorite Restaurants"></card-list>
+			<card-list .restaurants='${this._data}' title="Your Favorite Restaurants"></card-list>
 		`;
 	}
 

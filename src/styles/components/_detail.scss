@@ -1,5 +1,3 @@
-@import '../base';
-
 @mixin heading {
 	@include y-padding($spacing--base);
 	font-family: $font-family--heading;

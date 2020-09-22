@@ -1,14 +1,9 @@
 import { LitElement, html } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import pageInfoStyle from '../../styles/components/info.scss';
 
 const feather = require('feather-icons');
 
 class PageInfo extends LitElement {
-	static get styles() {
-		return [pageInfoStyle];
-	}
-
 	static get properties() {
 		return {
 			title: { type: String },
@@ -34,6 +29,10 @@ class PageInfo extends LitElement {
 				</div>
 			</section>
 		`;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 
 	_renderIcon() {

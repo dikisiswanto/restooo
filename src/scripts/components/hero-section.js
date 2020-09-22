@@ -1,11 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import heroStyle from '../../styles/components/hero.scss';
 
 class Hero extends LitElement {
-	static get styles() {
-		return [heroStyle];
-	}
-
 	static get properties() {
 		return {
 			banner: { type: String },
@@ -33,6 +28,10 @@ class Hero extends LitElement {
 				</div>
 			</section>
 		`;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 }
 

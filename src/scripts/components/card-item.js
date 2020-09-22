@@ -1,6 +1,5 @@
 import { html, LitElement } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
-import cardStyle from '../../styles/components/card.scss';
 import CONFIG from '../data/config';
 
 const feather = require('feather-icons');
@@ -12,10 +11,6 @@ class CardItem extends LitElement {
 			_mapIcon: { type: String },
 			_ratingIcon: { type: String },
 		};
-	}
-
-	static get styles() {
-		return [cardStyle];
 	}
 
 	constructor() {
@@ -39,6 +34,10 @@ class CardItem extends LitElement {
 				</div>
 			</a>
 		`;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 }
 

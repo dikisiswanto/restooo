@@ -16,24 +16,6 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(sa|sc|c)ss$/i,
-				exclude: /(main\.scss|normalize\.css)$/i,
-				use: [
-					{
-						loader: 'lit-scss-loader',
-					},
-					{
-						loader: 'extract-loader',
-					},
-					{
-						loader: 'css-loader',
-					},
-					{
-						loader: 'sass-loader',
-					},
-				],
-			},
-			{
-				test: /(main\.scss|normalize\.css)$/i,
 				use: [
 					{
 						loader: 'style-loader',

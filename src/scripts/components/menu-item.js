@@ -1,8 +1,6 @@
 import { html, LitElement } from 'lit-element';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html';
 
-import menuItemStyle from '../../styles/components/menu-item.scss';
-
 const feather = require('feather-icons');
 
 class MenuItem extends LitElement {
@@ -11,10 +9,6 @@ class MenuItem extends LitElement {
 			menu: { type: Object },
 			_icon: { type: String },
 		};
-	}
-
-	static get styles() {
-		return [menuItemStyle];
 	}
 
 	constructor() {
@@ -27,6 +21,10 @@ class MenuItem extends LitElement {
 		return html`
 			<li class="menu-item">${unsafeHTML(this._renderIcon())} ${this.menu.name}</li>
 		`;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 
 	_renderIcon() {

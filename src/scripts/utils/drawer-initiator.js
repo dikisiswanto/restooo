@@ -15,6 +15,8 @@ const DrawerInitiator = {
 			return;
 		}
 		targetMenu.classList.add('--active');
+		this._closeDrawer();
+		this._closeButton();
 	},
 
 	_toggleDrawer(event) {
@@ -22,9 +24,17 @@ const DrawerInitiator = {
 		this._drawer.classList.toggle('--expanded');
 	},
 
+	_closeDrawer() {
+		this._drawer.classList.remove('--expanded');
+	},
+
 	_toggleButton(event) {
 		event.stopPropagation();
 		this._button.classList.toggle('--expanded');
+	},
+
+	_closeButton() {
+		this._button.classList.remove('--expanded');
 	},
 
 	_isTargetMenuExists(targetMenu) {

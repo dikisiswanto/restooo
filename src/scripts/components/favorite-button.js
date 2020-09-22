@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import favoriteButtonStyle from '../../styles/components/favorite-button.scss';
 import Database from '../services/db';
 
 class FavoriteButton extends LitElement {
@@ -8,10 +7,6 @@ class FavoriteButton extends LitElement {
 			_isFavorited: { type: Boolean },
 			restaurant: { type: Object },
 		};
-	}
-
-	static get styles() {
-		return [favoriteButtonStyle];
 	}
 
 	constructor() {
@@ -61,6 +56,10 @@ class FavoriteButton extends LitElement {
 		await Database.init();
 		await Database.deleteRestaurant(this.restaurant.id);
 		this._isFavorited = false;
+	}
+
+	createRenderRoot() {
+		return this;
 	}
 }
 
