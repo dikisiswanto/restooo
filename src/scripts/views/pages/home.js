@@ -49,7 +49,7 @@ export default class Home extends LitElement {
 
 	_renderLoading() {
 		return html`
-			<loading-bar><loading-bar>
+			<loading-bar></loading-bar>
 		`;
 	}
 

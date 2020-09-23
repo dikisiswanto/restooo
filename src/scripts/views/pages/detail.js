@@ -87,7 +87,7 @@ export default class Detail extends LitElement {
 			</section>
 			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
 			<section class="review-section">
-				${this._data.consumerReviews.map((review) => html`<review-item .review="${review}"></review-item>`)}
+				${this._data.consumerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
 			</section>
 			<form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
 				<h4 class="review-form__title">Submit a review</h4>
@@ -159,7 +159,7 @@ export default class Detail extends LitElement {
 
 	_renderLoading() {
 		return html`
-			<loading-bar><loading-bar>
+			<loading-bar></loading-bar>
 		`;
 	}
 
