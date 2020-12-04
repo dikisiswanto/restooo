@@ -64,7 +64,7 @@ export default class Detail extends LitElement {
 			<h2 class="detail__title">Restaurant Details</h2>
 			<section class="details">
 				<div class="detail__image">
-					<img src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant"/>
+					<img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant" class="lazyload"/>
 				</div>
 				<div class="detail__group">
 					<ul class="detail__list">
@@ -87,7 +87,7 @@ export default class Detail extends LitElement {
 			</section>
 			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
 			<section class="review-section">
-				${this._data.consumerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
+				${this._data.customerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
 			</section>
 			<form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
 				<h4 class="review-form__title">Submit a review</h4>

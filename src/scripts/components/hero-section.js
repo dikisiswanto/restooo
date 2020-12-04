@@ -1,4 +1,5 @@
 import { LitElement, html } from 'lit-element';
+import CONFIG from '../data/config';
 
 class Hero extends LitElement {
 	static get properties() {
@@ -12,7 +13,7 @@ class Hero extends LitElement {
 
 	constructor() {
 		super();
-		this.banner = './images/heros/hero-image_2.jpg';
+		this.banner = './images/heros/hero-image';
 		this.caption = 'Banner: Pick up your own taste! Find different taste from various restaurants near you';
 		this.title = 'Pick up your own taste!';
 		this.description = 'Find different taste from various restaurants near you...';
@@ -21,7 +22,7 @@ class Hero extends LitElement {
 	render() {
 		return html`
 			<section class="hero">
-				<img src="${this.banner}" alt="${this.caption}" class="hero__image">
+				<img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${this.banner}-large.jpg" srcset="${this.banner}-small.jpg 480w, ${this.banner}-large.jpg 800w" sizes="(max-width: 600px) 480px, 800px" alt="${this.caption}" class="hero__image">
 				<div class="hero__description">
 					<p class="hero__heading">${this.title}</p>
 					${this.description ? html`<p class="hero__caption">${this.description}</p>` : html``}
