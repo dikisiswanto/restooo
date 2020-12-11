@@ -21,17 +21,18 @@ Scenario('submit customer review', async ({ I }) => {
   const numOfInitialReview = await I.grabNumberOfVisibleElements('.review-item');
 
   const reviewer = 'John Doe';
-  const bodyReview = 'Submit review from CodeceptJS';
+  const bodyReview = 'Submit review from e2e test codeceptJS';
 
   I.fillField('textarea[name=review]', bodyReview);
   I.fillField('input[name=name]', reviewer);
   I.pressKey('Enter');
-  // wait for element to be updated in 3 seconds
-  I.waitForElement('.review-item', 3);
+
+  // wait for element to be appeared. timeout in 3 seconds
+  I.waitForElement(`review-item:nth-child(${numOfInitialReview + 1})`, 3000);
 
   const numOfCurrentReview = await I.grabNumberOfVisibleElements('.review-item');
 
-  assert.strictEqual(numOfInitialReview, numOfCurrentReview);
+  assert.strictEqual(numOfInitialReview + 1, numOfCurrentReview);
   assert.strictEqual((await I.grabTextFrom(locate('.review-item__user').last())).trim(), reviewer);
   assert.strictEqual((await I.grabTextFrom(locate('.review-item__body').last())).trim(), bodyReview);
 });
