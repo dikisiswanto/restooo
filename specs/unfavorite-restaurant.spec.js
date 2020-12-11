@@ -23,7 +23,7 @@ describe('unfavorite-restaurant:', () => {
     done();
   });
 
-  it('should display unfavorite button when the restaurant has been favorited', async (done) => {
+  it('should not display favorite button when the restaurant has been favorited', async (done) => {
     expect(node.querySelector('[aria-label="Add to favorite"]')).toBeFalsy();
     done();
   });
