@@ -1,137 +1,137 @@
 @mixin heading {
-	@include y-padding($spacing--base);
-	font-family: $font-family--heading;
-	font-weight: $font-weight--semibold;
+  @include y-padding($spacing--base);
+  font-family: $font-family--heading;
+  font-weight: $font-weight--semibold;
 }
 
 .back-to-home {
-	@include y-padding($spacing--sm);
-	@include x-padding($spacing--base);
-	background-color: $color--primary;
-	border-radius: .2rem;
-	color: $color--white;
-	display: inline-block;
-	text-decoration: none;
+  @include y-padding($spacing--sm);
+  @include x-padding($spacing--base);
+  background-color: $color--primary;
+  border-radius: .2rem;
+  color: $color--white;
+  display: inline-block;
+  text-decoration: none;
 
-	.feather {
-		display: inline-block;
-		height: 1.2rem;
-		margin-right: $spacing--xs;
-		width: 1.2rem;
-	}
+  .feather {
+    display: inline-block;
+    height: 1.2rem;
+    margin-right: $spacing--xs;
+    width: 1.2rem;
+  }
 }
 
 .details {
-	@include y-padding($spacing--xs);
-	align-items: flex-start;
-	column-gap: $spacing--lg;
-	display: flex;
-	flex-direction: column;
-	position: relative;
+  @include y-padding($spacing--xs);
+  align-items: flex-start;
+  column-gap: $spacing--lg;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
-	@media (min-width: $screen--lg) {
-		flex-direction: row;
-	}
+  @media (min-width: $screen--lg) {
+    flex-direction: row;
+  }
 }
 
 .detail {
-	&__title {
-		@include heading;
-		font-size: $font-size--3xl;
-		margin-bottom: $spacing--base;
+  &__title {
+    @include heading;
+    font-size: $font-size--3xl;
+    margin-bottom: $spacing--base;
 
-	}
+  }
 
-	&__subtitle {
-		@include heading;
-		font-size: $font-size--xl;
+  &__subtitle {
+    @include heading;
+    font-size: $font-size--xl;
 
-		&--bordered {
-			@include y-margin($spacing--base);
-			border-bottom: 1px dashed $color--primary;
-			border-top: 1px dashed $color--primary;
-		}
-	}
+    &--bordered {
+      @include y-margin($spacing--base);
+      border-bottom: 1px dashed $color--primary;
+      border-top: 1px dashed $color--primary;
+    }
+  }
 
-	&__image {
-		flex-shrink: 0;
-		height: auto;
-		margin-bottom: $spacing--base;
-		min-height: 250px;
-		width: 100%;
+  &__image {
+    flex-shrink: 0;
+    height: auto;
+    margin-bottom: $spacing--base;
+    min-height: 250px;
+    width: 100%;
 
-		@media (min-width: $screen--lg) {
-			max-width: 500px;
-		}
+    @media (min-width: $screen--lg) {
+      max-width: 500px;
+    }
 
-		img {
-			background-color: rgba($color--black, .2);
-			height: inherit;
-			object-fit: cover;
-			object-position: center;
-			width: 100%;
-		}
-	}
+    img {
+      background-color: rgba($color--black, .2);
+      height: inherit;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+  }
 
-	&__list {
-		width: 100%;
+  &__list {
+    width: 100%;
 
-		&__item {
-			@include y-padding($spacing--sm);
-			border-bottom: 1px solid rgba($color--black, .1);
+    &__item {
+      @include y-padding($spacing--sm);
+      border-bottom: 1px solid rgba($color--black, .1);
 
-			.feather {
-				@include y-padding($spacing--sm);
-				display: inline-flex;
-				height: 1.2rem;
-				margin-right: $spacing--sm;
-				stroke: $color--primary;
-				width: 1.2rem;
+      .feather {
+        @include y-padding($spacing--sm);
+        display: inline-flex;
+        height: 1.2rem;
+        margin-right: $spacing--sm;
+        stroke: $color--primary;
+        width: 1.2rem;
 
-				&-star {
-					fill: transparent;
-					width: 1.3rem;
-				}
-			}
+        &-star {
+          fill: transparent;
+          width: 1.3rem;
+        }
+      }
 
-			.ct {
-				@include x-margin($spacing--xs);
-				@include y-padding($spacing--xs);
-				@include x-padding($spacing--sm);
-				background-color: $color--secondary;
-				border-radius: .5rem;
-				display: inline-block;
-			}
-		}
-	}
+      .ct {
+        @include x-margin($spacing--xs);
+        @include y-padding($spacing--xs);
+        @include x-padding($spacing--sm);
+        background-color: $color--secondary;
+        border-radius: .5rem;
+        display: inline-block;
+      }
+    }
+  }
 
-	&__description {
-		@include y-padding($spacing--sm);
-	}
+  &__description {
+    @include y-padding($spacing--sm);
+  }
 }
 
 .menu-section {
-	display: grid;
-	grid-template-columns: 1fr;
+  display: grid;
+  grid-template-columns: 1fr;
 
-	@media (min-width: $screen--md) {
-		grid-template-columns: 1fr 1fr;
-		justify-items: center;
-	}
+  @media (min-width: $screen--md) {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
 }
 
 .review-section {
-	@include y-padding($spacing--sm);
-	column-gap: $spacing--base;
-	display: grid;
-	grid-template-columns: 1fr;
-	row-gap: $spacing--md;
+  @include y-padding($spacing--sm);
+  column-gap: $spacing--base;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: $spacing--md;
 
-	@media (min-width: $screen--md) {
-		grid-template-columns: repeat(2, 1fr);
-	}
+  @media (min-width: $screen--md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-	@media (min-width: $screen--lg) {
-		grid-template-columns: repeat(3, 1fr);
-	}
+  @media (min-width: $screen--lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

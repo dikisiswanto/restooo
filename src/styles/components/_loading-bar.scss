@@ -1,54 +1,54 @@
 @import '../base';
 
 @mixin loader {
-	animation: loading 1s infinite ease-in-out;
-	background: $color--primary;
-	height: 3em;
-	width: 1em;
+  animation: loading 1s infinite ease-in-out;
+  background: $color--primary;
+  height: 3em;
+  width: 1em;
 }
 
 .loader-container {
-	align-items: center;
-	display: flex;
-	height: inherit;
-	justify-content: center;
-	min-height: 20rem;
+  align-items: center;
+  display: flex;
+  height: inherit;
+  justify-content: center;
+  min-height: 20rem;
 }
 
 .loader {
-	@include loader;
-	animation-delay: -0.16s;
-	color: $color--primary;
-	position: relative;
+  @include loader;
+  animation-delay: -0.16s;
+  color: $color--primary;
+  position: relative;
 
-	&::before {
-		@include loader;
-		animation-delay: -0.32s;
-		content: '';
-		left: -1.5em;
-		position: absolute;
-		top: 0;
-	}
+  &::before {
+    @include loader;
+    animation-delay: -0.32s;
+    content: '';
+    left: -1.5em;
+    position: absolute;
+    top: 0;
+  }
 
-	&::after {
-		@include loader;
-		content: '';
-		left: 1.5em;
-		position: absolute;
-		top: 0;
-	}
+  &::after {
+    @include loader;
+    content: '';
+    left: 1.5em;
+    position: absolute;
+    top: 0;
+  }
 }
 
 @keyframes loading {
-	0%,
-	80%,
-	100% {
-		box-shadow: 0 0;
-		height: 3em;
-	}
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 3em;
+  }
 
-	40% {
-		box-shadow: 0 -2em;
-		height: 4em;
-	}
+  40% {
+    box-shadow: 0 -2em;
+    height: 4em;
+  }
 }

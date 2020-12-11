@@ -9,18 +9,18 @@ import serviceWorkerRegister from './utils/service-worker-register';
 const feather = require('feather-icons');
 
 const app = new App({
-	button: document.querySelector('#menu-button'),
-	drawer: document.querySelector('#navigation-drawer'),
-	content: document.querySelector('#content'),
-	skipLink: '#main-content',
+  button: document.querySelector('#menu-button'),
+  drawer: document.querySelector('#navigation-drawer'),
+  content: document.querySelector('#content'),
+  skipLink: '#main-content',
 });
 
 window.addEventListener('hashchange', () => {
-	app.renderPage();
+  app.renderPage();
 });
 
 window.addEventListener('load', () => {
-	app.renderPage();
-	feather.replace();
-	serviceWorkerRegister.init();
+  app.renderPage();
+  feather.replace();
+  serviceWorkerRegister.init();
 });
