@@ -1,52 +1,52 @@
 .header {
-	background-color: $color--black;
-	box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
-	color: $color--white;
-	position: sticky;
-	top: 0;
-	width: 100%;
-	z-index: 50;
+  background-color: $color--black;
+  box-shadow: 0 1px 3px 0 rgba($color--black, 0.1), 0 1px 2px 0 rgba($color--black, 0.06);
+  color: $color--white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 50;
 
-	&__inner {
-		@include container;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
+  &__inner {
+    @include container;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-		@media (min-width: $screen--lg) {
-			flex-direction: row;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      flex-direction: row;
+    }
+  }
 
-	&__logo {
-		fill: $color--primary;
-		height: 2rem;
-		margin-right: $spacing--xs;
-		width: auto;
-	}
+  &__logo {
+    fill: $color--primary;
+    height: 2rem;
+    margin-right: $spacing--xs;
+    width: auto;
+  }
 
-	&__brand {
-		@include y-padding($spacing--base);
-		align-items: center;
-		display: flex;
-		justify-content: space-between;
-	}
+  &__brand {
+    @include y-padding($spacing--base);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
 
-	&__title {
-		color: $color--secondary;
-		font-family: $font-family--brand;
-		font-size: $font-size--3xl;
-	}
+  &__title {
+    color: $color--secondary;
+    font-family: $font-family--brand;
+    font-size: $font-size--3xl;
+  }
 
-	&__link {
-		color: inherit;
-		display: inline-flex;
-		text-decoration: none;
-		transition: all .3s;
+  &__link {
+    color: inherit;
+    display: inline-flex;
+    text-decoration: none;
+    transition: all .3s;
 
-		&:hover {
-			color: darken($color--white, 20%);
-			text-decoration: underline;
-		}
-	}
+    &:hover {
+      color: darken($color--white, 20%);
+      text-decoration: underline;
+    }
+  }
 }

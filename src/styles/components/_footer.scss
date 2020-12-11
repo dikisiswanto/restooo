@@ -1,30 +1,30 @@
 .footer {
-	@include y-padding($spacing--base);
-	background-color: $color--primary;
-	color: $color--white;
-	font-size: $font-size--sm;
-	margin: 0;
+  @include y-padding($spacing--base);
+  background-color: $color--primary;
+  color: $color--white;
+  font-size: $font-size--sm;
+  margin: 0;
 
-	&__inner {
-		@include container;
-		text-align: center;
+  &__inner {
+    @include container;
+    text-align: center;
 
-		@media (min-width: $screen--lg) {
-			text-align: left;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      text-align: left;
+    }
+  }
 
-	a {
-		color: inherit;
+  a {
+    color: inherit;
 
-		&:hover {
-			color: darken($color--white, 20%);
-		}
-	}
+    &:hover {
+      color: darken($color--white, 20%);
+    }
+  }
 
-	strong {
-		font-family: $font-family--brand;
-		font-size: $font-size--lg;
-		font-weight: $font-weight--reguler;
-	}
+  strong {
+    font-family: $font-family--brand;
+    font-size: $font-size--lg;
+    font-weight: $font-weight--reguler;
+  }
 }

@@ -1,61 +1,61 @@
 .hero {
-	border-radius: .5rem;
-	height: 16rem;
-	overflow: hidden;
-	position: relative;
+  border-radius: .5rem;
+  height: 16rem;
+  overflow: hidden;
+  position: relative;
 
-	&__image {
-		height: inherit;
-		object-fit: cover;
-		object-position: center;
-		width: 100%;
-	}
+  &__image {
+    height: inherit;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+  }
 
-	&::after {
-		background-color: rgba($color--black, .5);
-		bottom: 0;
-		content: '';
-		height: 100%;
-		left: 0;
-		position: absolute;
-		right: 0;
-		top: 0;
-		width: 100%;
-	}
+  &::after {
+    background-color: rgba($color--black, .5);
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+  }
 
-	&__description {
-		@include container;
-		@include x-padding($spacing--lg);
-		@include y-padding($spacing--lg);
-		background-color: rgba($color--primary, .5);
-		bottom: 0;
-		color: $color--white;
-		font-family: $font-family--heading;
-		left: $spacing--md;
-		position: absolute;
-		right: 0;
-		z-index: 30;
+  &__description {
+    @include container;
+    @include x-padding($spacing--lg);
+    @include y-padding($spacing--lg);
+    background-color: rgba($color--primary, .5);
+    bottom: 0;
+    color: $color--white;
+    font-family: $font-family--heading;
+    left: $spacing--md;
+    position: absolute;
+    right: 0;
+    z-index: 30;
 
-		@media (min-width: $screen--md) {
-			left: unset;
-		}
-	}
+    @media (min-width: $screen--md) {
+      left: unset;
+    }
+  }
 
-	&__heading {
-		font-size: $font-size--2xl;
+  &__heading {
+    font-size: $font-size--2xl;
 
-		@media (min-width: $screen--lg) {
-			font-size: $font-size--3xl;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      font-size: $font-size--3xl;
+    }
+  }
 
-	&__caption {
-		@include y-padding($spacing--sm);
-		font-family: $font-family--body;
-		font-size: $font-size--base;
+  &__caption {
+    @include y-padding($spacing--sm);
+    font-family: $font-family--body;
+    font-size: $font-size--base;
 
-		@media (min-width: $screen--lg) {
-			font-size: $font-size--lg;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      font-size: $font-size--lg;
+    }
+  }
 }

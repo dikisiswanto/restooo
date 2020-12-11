@@ -1,17 +1,17 @@
 .icon {
-	display: inline-block;
-	height: 1rem;
-	margin-right: $spacing--xs;
-	width: 1rem;
+  display: inline-block;
+  height: 1rem;
+  margin-right: $spacing--xs;
+  width: 1rem;
 
-	&--rating {
-		fill: $color--secondary;
-		stroke: $color--secondary;
-	}
+  &--rating {
+    fill: $color--secondary;
+    stroke: $color--secondary;
+  }
 
-	&--nav {
-		height: 1.2rem;
-		margin-right: $spacing--sm;
-		width: 1.2rem;
-	}
+  &--nav {
+    height: 1.2rem;
+    margin-right: $spacing--sm;
+    width: 1.2rem;
+  }
 }

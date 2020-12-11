@@ -1,28 +1,28 @@
 .content {
-	@include container;
-	@include y-padding($spacing--md);
-	margin-bottom: $spacing--lg;
-	min-height: 100%;
+  @include container;
+  @include y-padding($spacing--md);
+  margin-bottom: $spacing--lg;
+  min-height: 100%;
 
-	&__title {
-		color: $color--primary-text;
-		font-family: $font-family--heading;
-		font-size: $font-size--3xl;
-		font-weight: $font-weight--semibold;
-		padding-bottom: $spacing--md;
+  &__title {
+    color: $color--primary-text;
+    font-family: $font-family--heading;
+    font-size: $font-size--3xl;
+    font-weight: $font-weight--semibold;
+    padding-bottom: $spacing--md;
 
-		@media (min-width: $screen--lg) {
-			font-size: $font-size--4xl;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      font-size: $font-size--4xl;
+    }
+  }
 
-	&__subtitle {
-		color: lighten($color--black, 30%);
-		font-size: $font-size--lg;
-	}
+  &__subtitle {
+    color: lighten($color--black, 30%);
+    font-size: $font-size--lg;
+  }
 
-	&__description {
-		color: lighten($color--black, 30%);
-		font-size: $font-size--base;
-	}
+  &__description {
+    color: lighten($color--black, 30%);
+    font-size: $font-size--base;
+  }
 }

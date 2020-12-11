@@ -13,58 +13,58 @@ import CONFIG from '../../data/config';
 const feather = require('feather-icons');
 
 export default class Detail extends LitElement {
-	static get properties() {
-		return {
-			_data: { type: Object },
-			_loading: { type: Boolean },
-			_icons: { type: Object },
-			_isValid: { type: Boolean },
-		};
-	}
+  static get properties() {
+    return {
+      _data: { type: Object },
+      _loading: { type: Boolean },
+      _icons: { type: Object },
+      _isValid: { type: Boolean },
+    };
+  }
 
-	constructor() {
-		super();
-		this._data = {};
-		this._loading = true;
-		this._icons = {
-			brand: 'coffee',
-			location: 'map-pin',
-			rating: 'star',
-			back: 'chevron-left',
-			tag: 'tag',
-		};
-		this._isValid = true;
-	}
+  constructor() {
+    super();
+    this._data = {};
+    this._loading = true;
+    this._icons = {
+      brand: 'coffee',
+      location: 'map-pin',
+      rating: 'star',
+      back: 'chevron-left',
+      tag: 'tag',
+    };
+    this._isValid = true;
+  }
 
-	render() {
-		if (this._loading) {
-			this._requestData();
-			return this._renderLoading();
-		}
-		return this._renderData();
-	}
+  render() {
+    if (this._loading) {
+      this._requestData();
+      return this._renderLoading();
+    }
+    return this._renderData();
+  }
 
-	createRenderRoot() {
-		return this;
-	}
+  createRenderRoot() {
+    return this;
+  }
 
-	async _requestData() {
-		const url = UrlParser.parseActiveUrlWithoutCombiner();
-		const { restaurant } = await Api.getRestaurant(url.id);
-		this._data = restaurant || {};
-		this._loading = false;
-	}
+  async _requestData() {
+    const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const { restaurant } = await Api.getRestaurant(url.id);
+    this._data = restaurant || {};
+    this._loading = false;
+  }
 
-	_renderData() {
-		if (!this._isDataAvailable()) {
-			return this._renderError();
-		}
-		return html`
+  _renderData() {
+    if (!this._isDataAvailable()) {
+      return this._renderError();
+    }
+    return html`
 			<a href="#/home/" class="back-to-home">${unsafeHTML(this._renderIcon(this._icons.back))} Back to home</a>
 			<h2 class="detail__title">Restaurant Details</h2>
 			<section class="details">
 				<div class="detail__image">
-					<img src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant"/>
+					<img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant" class="lazyload"/>
 				</div>
 				<div class="detail__group">
 					<ul class="detail__list">
@@ -87,7 +87,7 @@ export default class Detail extends LitElement {
 			</section>
 			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
 			<section class="review-section">
-				${this._data.consumerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
+				${this._data.customerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
 			</section>
 			<form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
 				<h4 class="review-form__title">Submit a review</h4>
@@ -108,74 +108,74 @@ export default class Detail extends LitElement {
 				</div>
 			</form>
 		`;
-	}
+  }
 
-	_renderErrorForm() {
-		if (!this._isValid) {
-			return html`
+  _renderErrorForm() {
+    if (!this._isValid) {
+      return html`
 				<div class="review-form__error">Please fill out all form properly!</div>
 			`;
-		}
-		return html``;
-	}
+    }
+    return html``;
+  }
 
-	async _handleSubmit(event) {
-		event.preventDefault();
-		this._validateForm(event.target);
-		if (this._isValid) {
-			const jsonFormData = this._parseFormDataToJson(new FormData(event.target));
-			this._resetForm(event.target);
-			await this._submitReview(jsonFormData);
-			await this._requestData();
-		}
-	}
+  async _handleSubmit(event) {
+    event.preventDefault();
+    this._validateForm(event.target);
+    if (this._isValid) {
+      const jsonFormData = this._parseFormDataToJson(new FormData(event.target));
+      this._resetForm(event.target);
+      await this._submitReview(jsonFormData);
+      await this._requestData();
+    }
+  }
 
-	_parseFormDataToJson(formData) {
-		return Object.fromEntries(formData);
-	}
+  _parseFormDataToJson(formData) {
+    return Object.fromEntries(formData);
+  }
 
-	_isValidForm(form) {
-		const inputs = form.querySelectorAll('.review-form__input');
-		let valid = true;
-		inputs.forEach((input) => {
-			if (!input.value.trim()) {
-				valid = false;
-			}
-		});
-		return valid;
-	}
+  _isValidForm(form) {
+    const inputs = form.querySelectorAll('.review-form__input');
+    let valid = true;
+    inputs.forEach((input) => {
+      if (!input.value.trim()) {
+        valid = false;
+      }
+    });
+    return valid;
+  }
 
-	_validateForm(form) {
-		this._isValid = this._isValidForm(form);
-	}
+  _validateForm(form) {
+    this._isValid = this._isValidForm(form);
+  }
 
-	_resetForm(form) {
-		form.reset();
-	}
+  _resetForm(form) {
+    form.reset();
+  }
 
-	async _submitReview(data) {
-		await Api.addReview(data);
-	}
+  async _submitReview(data) {
+    await Api.addReview(data);
+  }
 
-	_renderLoading() {
-		return html`
+  _renderLoading() {
+    return html`
 			<loading-bar></loading-bar>
 		`;
-	}
+  }
 
-	_renderError() {
-		return html`
+  _renderError() {
+    return html`
 			<page-info></page-info>
 		`;
-	}
+  }
 
-	_renderIcon(icon) {
-		return feather.icons[icon].toSvg();
-	}
+  _renderIcon(icon) {
+    return feather.icons[icon].toSvg();
+  }
 
-	_isDataAvailable() {
-		return Object.keys(this._data).length;
-	}
+  _isDataAvailable() {
+    return Object.keys(this._data).length;
+  }
 }
 
 customElements.define('detail-page', Detail);

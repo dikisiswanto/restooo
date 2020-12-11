@@ -6,32 +6,32 @@ $spacing--md: 1.5rem;
 $spacing--lg: 2rem;
 
 @mixin container {
-	margin: 0 auto;
-	max-width: $container;
-	padding-left: $spacing--base;
-	padding-right: $spacing--base;
+  margin: 0 auto;
+  max-width: $container;
+  padding-left: $spacing--base;
+  padding-right: $spacing--base;
 }
 
 // Vertical padding
 @mixin y-padding($padding) {
-	padding-bottom: $padding;
-	padding-top: $padding;
+  padding-bottom: $padding;
+  padding-top: $padding;
 }
 
 // Horizontal padding
 @mixin x-padding($padding) {
-	padding-left: $padding;
-	padding-right: $padding;
+  padding-left: $padding;
+  padding-right: $padding;
 }
 
 // Vertical margin
 @mixin y-margin($margin) {
-	margin-bottom: $margin;
-	margin-top: $margin;
+  margin-bottom: $margin;
+  margin-top: $margin;
 }
 
 // Horizontal margin
 @mixin x-margin($margin) {
-	margin-left: $margin;
-	margin-right: $margin;
+  margin-left: $margin;
+  margin-right: $margin;
 }

@@ -2,65 +2,67 @@ import { LitElement, html } from 'lit-element';
 import Database from '../services/db';
 
 class FavoriteButton extends LitElement {
-	static get properties() {
-		return {
-			_isFavorited: { type: Boolean },
-			restaurant: { type: Object },
-		};
-	}
+  static get properties() {
+    return {
+      _isFavorited: { type: Boolean },
+      restaurant: { type: Object },
+    };
+  }
 
-	constructor() {
-		super();
-		this._isFavorited = false;
-		this.restaurant = {};
-		this._fetchFromDatabase();
-	}
+  constructor() {
+    super();
+    this._isFavorited = false;
+    this.restaurant = {};
+  }
 
-	render() {
-		return html`
-			<button class="favorite-button ${this._isFavorited ? '--favorited' : ''}" @click="${this._toggleFavorite}">${this._getButtonText()}</button>
-		`;
-	}
+  async performUpdate() {
+    await this._fetchFromDatabase();
+    super.performUpdate();
+  }
 
-	_getButtonText() {
-		return !this._isFavorited ? 'Add to favorite' : 'Remove from favorite';
-	}
+  render() {
+    return html`
+      <button class="favorite-button ${this._isFavorited ? '--favorited' : ''}" @click="${this._toggleFavorite}" aria-label="${this._getButtonText()}">${this._getButtonText()}</button>
+    `;
+  }
 
-	_toggleFavorite() {
-		if (this._isFavorited) {
-			this._removeFromFavorite();
-		} else {
-			this._addToFavorite();
-		}
-	}
+  _getButtonText() {
+    return this._isFavorited ? 'Remove from favorite' : 'Add to favorite';
+  }
 
-	async _fetchFromDatabase() {
-		if (await this._isEntryExistOnDb()) {
-			this._isFavorited = true;
-		}
-	}
+  _toggleFavorite() {
+    if (this._isFavorited) {
+      this._removeFromFavorite();
+    } else {
+      this._addToFavorite();
+    }
+    this._isFavorited = !this._isFavorited;
+  }
 
-	async _isEntryExistOnDb() {
-		await Database.init();
-		const isEntryExist = await Database.getRestaurant(this.restaurant.id);
-		return !!isEntryExist;
-	}
+  async _fetchFromDatabase() {
+    this._isFavorited = await this._isEntryExistOnDb();
+  }
 
-	async _addToFavorite() {
-		await Database.init();
-		await Database.addRestaurant(this.restaurant);
-		this._isFavorited = true;
-	}
+  async _isEntryExistOnDb() {
+    await Database.init();
+    const isEntryExist = await Database.getRestaurant(this.restaurant.id);
+    return !!isEntryExist;
+  }
 
-	async _removeFromFavorite() {
-		await Database.init();
-		await Database.deleteRestaurant(this.restaurant.id);
-		this._isFavorited = false;
-	}
+  async _addToFavorite() {
+    await Database.init();
+    await Database.addRestaurant(this.restaurant);
+  }
 
-	createRenderRoot() {
-		return this;
-	}
+  async _removeFromFavorite() {
+    await Database.init();
+    await Database.deleteRestaurant(this.restaurant.id);
+  }
+
+  createRenderRoot() {
+    return this;
+  }
 }
 
-customElements.define('favorite-button', FavoriteButton);
+// eslint-disable-next-line no-unused-expressions
+customElements.get('favorite-button') || customElements.define('favorite-button', FavoriteButton);

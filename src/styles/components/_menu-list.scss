@@ -1,11 +1,11 @@
 .menu-list-title {
-	@include y-padding($spacing--base);
-	font-family: $font-family--heading;
-	font-size: $font-size--xl;
-	font-weight: $font-weight--semibold;
+  @include y-padding($spacing--base);
+  font-family: $font-family--heading;
+  font-size: $font-size--xl;
+  font-weight: $font-weight--semibold;
 }
 
 .menus {
-	margin-bottom: $spacing--base;
-	width: 100%;
+  margin-bottom: $spacing--base;
+  width: 100%;
 }

@@ -1,131 +1,131 @@
 .nav {
-	color: $color--white;
-	display: flex;
-	flex-direction: column;
-	height: 0;
-	transform: scaleY(0);
-	transform-origin: top;
-	transition: all .3s;
+  color: $color--white;
+  display: flex;
+  flex-direction: column;
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all .3s;
 
-	@media (min-width: $screen--lg) {
-		flex-direction: row;
-		height: 100%;
-		transform: scaleY(1);
-	}
+  @media (min-width: $screen--lg) {
+    flex-direction: row;
+    height: 100%;
+    transform: scaleY(1);
+  }
 
-	&__item {
-		@include x-padding($spacing--xs);
-		width: 100%;
+  &__item {
+    @include x-padding($spacing--xs);
+    width: 100%;
 
-		@media (min-width: $screen--lg) {
-			width: auto;
-		}
-	}
+    @media (min-width: $screen--lg) {
+      width: auto;
+    }
+  }
 
-	&__link {
-		@include y-padding($spacing--md);
-		align-items: center;
-		color: inherit;
-		display: flex;
-		font-family: $font-family--heading;
-		position: relative;
-		text-decoration: none;
-		transition: all .3s;
+  &__link {
+    @include y-padding($spacing--md);
+    align-items: center;
+    color: inherit;
+    display: flex;
+    font-family: $font-family--heading;
+    position: relative;
+    text-decoration: none;
+    transition: all .3s;
 
-		@media (min-width: $screen--lg) {
-			@include x-padding($spacing--base);
-			display: inline-flex;
-		}
+    @media (min-width: $screen--lg) {
+      @include x-padding($spacing--base);
+      display: inline-flex;
+    }
 
-		&::after {
-			background: $color--secondary;
-			bottom: 0;
-			content: '';
-			height: 3px;
-			left: 0;
-			position: absolute;
-			right: 0;
-			transition: all .3s;
-			width: 0;
-		}
+    &::after {
+      background: $color--secondary;
+      bottom: 0;
+      content: '';
+      height: 3px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      transition: all .3s;
+      width: 0;
+    }
 
-		&:hover,
-		&.--active {
-			color: $color--secondary;
+    &:hover,
+    &.--active {
+      color: $color--secondary;
 
-			&::after {
-				width: 100%;
-			}
-		}
-	}
+      &::after {
+        width: 100%;
+      }
+    }
+  }
 
-	&.--expanded {
-		height: 100%;
-		transform: scaleY(1);
-	}
+  &.--expanded {
+    height: 100%;
+    transform: scaleY(1);
+  }
 }
 
 .nav-button {
-	background: transparent;
-	border: 0;
-	cursor: pointer;
-	display: inline-block;
-	height: 3rem;
-	overflow: hidden;
-	position: relative;
-	width: 3.5rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: 3rem;
+  overflow: hidden;
+  position: relative;
+  width: 3.5rem;
 
-	@media (min-width: $screen--lg) {
-		display: none;
-		opacity: 0;
-		visibility: hidden;
-	}
+  @media (min-width: $screen--lg) {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
 
-	&__icon {
-		background-color: $color--white;
-		display: block;
-		height: 2px;
-		left: .6rem;
-		position: absolute;
-		right: .6rem;
-		transition: all .3s;
+  &__icon {
+    background-color: $color--white;
+    display: block;
+    height: 2px;
+    left: .6rem;
+    position: absolute;
+    right: .6rem;
+    transition: all .3s;
 
-		&:nth-child(1) {
-			top: 30%;
-		}
+    &:nth-child(1) {
+      top: 30%;
+    }
 
-		&:nth-child(2) {
-			top: 50%;
-		}
+    &:nth-child(2) {
+      top: 50%;
+    }
 
-		&:nth-child(3) {
-			top: 70%;
-		}
-	}
+    &:nth-child(3) {
+      top: 70%;
+    }
+  }
 
-	&:active,
-	&:focus {
-		outline: 0;
-	}
+  &:active,
+  &:focus {
+    outline: 0;
+  }
 
-	&.--expanded {
-		.nav-button__icon {
-			width: 60%;
+  &.--expanded {
+    .nav-button__icon {
+      width: 60%;
 
-			&:nth-child(1) {
-				top: 50%;
-				transform: rotate(45deg);
-			}
+      &:nth-child(1) {
+        top: 50%;
+        transform: rotate(45deg);
+      }
 
-			&:nth-child(2) {
-				left: -1.5rem;
-				opacity: 0;
-			}
+      &:nth-child(2) {
+        left: -1.5rem;
+        opacity: 0;
+      }
 
-			&:nth-child(3) {
-				top: 50%;
-				transform: rotate(-45deg);
-			}
-		}
-	}
+      &:nth-child(3) {
+        top: 50%;
+        transform: rotate(-45deg);
+      }
+    }
+  }
 }

@@ -1,12 +1,12 @@
 .menu-item {
-	@include y-padding($spacing--sm);
-	display: block;
+  @include y-padding($spacing--sm);
+  display: block;
 
-	.feather {
-		display: inline-block;
-		height: 1.3rem;
-		margin-right: $spacing--sm;
-		stroke: $color--primary;
-		width: 1.3rem;
-	}
+  .feather {
+    display: inline-block;
+    height: 1.3rem;
+    margin-right: $spacing--sm;
+    stroke: $color--primary;
+    width: 1.3rem;
+  }
 }
