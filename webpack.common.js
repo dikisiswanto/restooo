@@ -100,6 +100,10 @@ module.exports = {
           urlPattern: new RegExp('https://fonts.gstatic.com/'),
           handler: 'StaleWhileRevalidate',
         },
+        {
+          urlPattern: new RegExp('https://fonts.googleapis.com/'),
+          handler: 'StaleWhileRevalidate',
+        },
       ],
     }),
     new ImageminWebpackPlugin({

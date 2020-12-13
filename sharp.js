@@ -5,6 +5,7 @@ const path = require('path');
 
 const target = path.resolve(__dirname, 'src/public/images/heros');
 const destination = path.resolve(__dirname, 'dist/images/heros');
+const pattern = /(large|small).*/g;
 
 if (!fs.existsSync(destination)) {
   fs.mkdirSync(destination);
@@ -12,19 +13,28 @@ if (!fs.existsSync(destination)) {
 
 fs.readdirSync(target)
   .forEach((image) => {
-    sharp(`${target}/${image}`)
-      .resize(800)
-      .toFile(
-        path.resolve(__dirname, `${destination}/${image.split('.')
-          .slice(0, -1)
-          .join('.')}-large.jpg`),
-      );
+    if (!image.match(pattern)) {
+      sharp(`${target}/${image}`)
+        .resize(800)
+        .toFile(
+          path.resolve(__dirname, `${destination}/${image.split('.')
+            .slice(0, -1)
+            .join('.')}-large.jpg`),
+        );
 
-    sharp(`${target}/${image}`)
-      .resize(480)
-      .toFile(
-        path.resolve(__dirname, `${destination}/${image.split('.')
-          .slice(0, -1)
-          .join('.')}-small.jpg`),
-      );
+      sharp(`${target}/${image}`)
+        .resize(480)
+        .toFile(
+          path.resolve(__dirname, `${destination}/${image.split('.')
+            .slice(0, -1)
+            .join('.')}-small.jpg`),
+        );
+    }
+  });
+
+fs.readdirSync(destination)
+  .forEach((image) => {
+    if (!fs.existsSync(`${target}/${image}`)) {
+      fs.copyFileSync(`${destination}/${image}`, `${target}/${image}`, fs.constants.COPYFILE_EXCL);
+    }
   });
