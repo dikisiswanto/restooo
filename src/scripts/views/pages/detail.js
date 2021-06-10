@@ -60,61 +60,61 @@ export default class Detail extends LitElement {
       return this._renderError();
     }
     return html`
-			<a href="#/home/" class="back-to-home">${unsafeHTML(this._renderIcon(this._icons.back))} Back to home</a>
-			<h2 class="detail__title">Restaurant Details</h2>
-			<section class="details">
-				<div class="detail__image">
-					<img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant" class="lazyload"/>
-				</div>
-				<div class="detail__group">
-					<ul class="detail__list">
-						<li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.brand))} Restaurant: <span class="--text-semibold">${this._data.name}</span></li>
-						<li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.location))} Location: <span class="--text-semibold">${`${this._data.address}, ${this._data.city}`}</span></li>
-						<li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.rating))} Rating: <span class="--text-semibold">${this._data.rating.toFixed(1)}</span></li>
-						<li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.tag))} Categories: ${this._data.categories.map(({ name }) => html`<span class="ct">${name}</span>`)}</li>
-					</ul>
-					<div class="detail__description">
-						<h3 class="detail__subtitle">Description</h3>
-						<p>${this._data.description}</p>
-					</div>
-					<favorite-button .restaurant='${this._data}'></favorite-button>
-				</div>
-			</section>
-			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Menus</h3>
-			<section class="menu-section">
-				<menu-list .menus='${this._data.menus.foods}' title="Foods"></menu-list>
-				<menu-list .menus='${this._data.menus.drinks}' title="Drinks"></menu-list>
-			</section>
-			<h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
-			<section class="review-section">
-				${this._data.customerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
-			</section>
-			<form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
-				<h4 class="review-form__title">Submit a review</h4>
-				<div class="review-form__body">
-					<input type="hidden" name="id" value="${this._data.id}">
-					${this._renderErrorForm()}
-					<div class="review-form__group">
-						<label for="name">Name <span>*</span></label>
-						<input type="text" class="review-form__input" name="name" id="name">
-					</div>
-					<div class="review-form__group">
-						<label for="review">Review <span>*</span></label>
-						<textarea rows="5" class="review-form__input" name="review" id="review"></textarea>
-					</div>
-				</div>
-				<div class="review-form__footer">
-					<button type="submit" class="review-form__button">Submit</button>
-				</div>
-			</form>
-		`;
+      <a href="#/home/" class="back-to-home">${unsafeHTML(this._renderIcon(this._icons.back))} Back to home</a>
+      <h2 class="detail__title">Restaurant Details</h2>
+      <section class="details">
+        <div class="detail__image">
+          <img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant" class="lazyload"/>
+        </div>
+        <div class="detail__group">
+          <ul class="detail__list">
+            <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.brand))} Restaurant: <span class="--text-semibold">${this._data.name}</span></li>
+            <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.location))} Location: <span class="--text-semibold">${`${this._data.address}, ${this._data.city}`}</span></li>
+            <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.rating))} Rating: <span class="--text-semibold">${this._data.rating.toFixed(1)}</span></li>
+            <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.tag))} Categories: ${this._data.categories.map(({ name }) => html`<span class="ct">${name}</span>`)}</li>
+          </ul>
+          <div class="detail__description">
+            <h3 class="detail__subtitle">Description</h3>
+            <p>${this._data.description}</p>
+          </div>
+          <favorite-button .restaurant='${this._data}'></favorite-button>
+        </div>
+      </section>
+      <h3 class="detail__subtitle detail__subtitle--bordered --text-center">Menus</h3>
+      <section class="menu-section">
+        <menu-list .menus='${this._data.menus.foods}' title="Foods"></menu-list>
+        <menu-list .menus='${this._data.menus.drinks}' title="Drinks"></menu-list>
+      </section>
+      <h3 class="detail__subtitle detail__subtitle--bordered --text-center">Consumer Reviews</h3>
+      <section class="review-section">
+        ${this._data.customerReviews.map((review) => html`<review-item .review=${review}></review-item>`)}
+      </section>
+      <form method="post" class="review-form" action="" @submit="${this._handleSubmit}">
+        <h4 class="review-form__title">Submit a review</h4>
+        <div class="review-form__body">
+          <input type="hidden" name="id" value="${this._data.id}">
+          ${this._renderErrorForm()}
+          <div class="review-form__group">
+            <label for="name">Name <span>*</span></label>
+            <input type="text" class="review-form__input" name="name" id="name">
+          </div>
+          <div class="review-form__group">
+            <label for="review">Review <span>*</span></label>
+            <textarea rows="5" class="review-form__input" name="review" id="review"></textarea>
+          </div>
+        </div>
+        <div class="review-form__footer">
+          <button type="submit" class="review-form__button">Submit</button>
+        </div>
+      </form>
+    `;
   }
 
   _renderErrorForm() {
     if (!this._isValid) {
       return html`
-				<div class="review-form__error">Please fill out all form properly!</div>
-			`;
+        <div class="review-form__error">Please fill out all form properly!</div>
+      `;
     }
     return html``;
   }
@@ -159,14 +159,14 @@ export default class Detail extends LitElement {
 
   _renderLoading() {
     return html`
-			<loading-bar></loading-bar>
-		`;
+      <loading-bar></loading-bar>
+    `;
   }
 
   _renderError() {
     return html`
-			<page-info></page-info>
-		`;
+      <page-info></page-info>
+    `;
   }
 
   _renderIcon(icon) {
