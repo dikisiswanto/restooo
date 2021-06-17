@@ -8,4 +8,4 @@ Final submission for _**Dicoding - Menjadi Front-end Web Developer Expert**_ cla
 
 ## Demo
 
-Demo: [dikisiswanto.github.io](https://dikisiswanto.github.io)
+Demo: [dikisiswanto.github.io/restooo](https://dikisiswanto.github.io/restooo)
