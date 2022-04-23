@@ -61,14 +61,13 @@ export default class Detail extends LitElement {
     }
     return html`
       <a href="#/home/" class="back-to-home">${unsafeHTML(this._renderIcon(this._icons.back))} Back to home</a>
-      <h2 class="detail__title">Restaurant Details</h2>
+      <h2 class="detail__title">${this._data.name}</h2>
       <section class="details">
         <div class="detail__image">
           <img src="${CONFIG.IMAGE_PLACEHOLDER}" data-src="${CONFIG.API_MEDIUM_IMG_PATH + this._data.pictureId}" alt="Photo of ${this._data.name} restaurant" class="lazyload"/>
         </div>
         <div class="detail__group">
           <ul class="detail__list">
-            <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.brand))} Restaurant: <span class="--text-semibold">${this._data.name}</span></li>
             <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.location))} Location: <span class="--text-semibold">${`${this._data.address}, ${this._data.city}`}</span></li>
             <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.rating))} Rating: <span class="--text-semibold">${this._data.rating.toFixed(1)}</span></li>
             <li class="detail__list__item">${unsafeHTML(this._renderIcon(this._icons.tag))} Categories: ${this._data.categories.map(({ name }) => html`<span class="ct">${name}</span>`)}</li>

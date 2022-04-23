@@ -1,5 +1,4 @@
 import API_ENDPOINT from '../data/api-endpoint';
-import CONFIG from '../data/config';
 
 class Api {
   static async getAllRestaurants() {
@@ -26,7 +25,6 @@ class Api {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Auth-Token': CONFIG.API_AUTH_TOKEN,
         },
         body: JSON.stringify(data),
       };
